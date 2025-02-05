@@ -8,8 +8,10 @@ use RuntimeException;
 
 class ValidationException extends RuntimeException
 {
-  public function __construct(int $code = 422)
+  public array $errors = [];
+  public function __construct(array $errors, int $code = 422)
   {
     parent::__construct(code: $code);
+    $this->errors = $errors;
   }
 }
